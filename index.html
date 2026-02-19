@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الباب السابع - نظام الصمت العميق</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+h1, h2 {
+  text-align: center;
+  color: #ffcc00;
+}
+.day {
+  display: none;
+}
+.active {
+  display: block;
+}
+button {
+  background-color: #ffcc00;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>الباب السابع</h1>
+<h2>نظام الصمت العميق</h2>
+
+<div class="day active" id="day1">
+<h2>اليوم الأول: الصمت</h2>
+<p>اجلس في مكان هادئ 15 دقيقة بدون موبايل.</p>
+<button onclick="nextDay(2)">التالي</button>
+</div>
+
+<div class="day" id="day2">
+<h2>اليوم الثاني: الانفصال</h2>
+<p>اكتب من أنت بدون وظيفتك أو ماضيك.</p>
+<button onclick="nextDay(3)">التالي</button>
+</div>
+
+<div class="day" id="day3">
+<h2>اليوم الثالث: الرمز</h2>
+<p>ارسم رمز يعبر عن حالتك الحالية.</p>
+<button onclick="nextDay(4)">التالي</button>
+</div>
+
+<div class="day" id="day4">
+<h2>اليوم الرابع: الشبكة</h2>
+<p>اكتب 5 أشياء تؤثر على قراراتك.</p>
+<button onclick="nextDay(5)">التالي</button>
+</div>
+
+<div class="day" id="day5">
+<h2>اليوم الخامس: الاختبار</h2>
+<p>أوقف عادة تستهلك طاقتك لمدة 24 ساعة.</p>
+<button onclick="nextDay(6)">التالي</button>
+</div>
+
+<div class="day" id="day6">
+<h2>اليوم السادس: الحقيقة</h2>
+<p>اكتب الحقيقة التي تهرب منها.</p>
+<button onclick="nextDay(7)">التالي</button>
+</div>
+
+<div class="day" id="day7">
+<h2>اليوم السابع: العبور</h2>
+<p>اتخذ قرار صغير يمثل نسختك الجديدة.</p>
+<p>🎉 مبروك! أنهيت تجربة الباب السابع.</p>
+</div>
+
+<script>
+function nextDay(num){
+  for(let i=1;i<=7;i++){
+    document.getElementById("day"+i).classList.remove("active");
+  }
+  document.getElementById("day"+num).classList.add("active");
+}
+</script>
+
+</div>
+</body>
+</html>
