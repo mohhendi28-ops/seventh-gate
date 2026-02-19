@@ -5,14 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الباب السابع - نظام الصمت العميق</title>
 <style>
-body {.day:nth-child(1) { background-color: #1a1a1a; padding: 20px; border-radius: 10px; }
-.day:nth-child(2) { background-color: #2e2b44; padding: 20px; border-radius: 10px; }
-.day:nth-child(3) { background-color: #442c2c; padding: 20px; border-radius: 10px; }
-.day:nth-child(4) { background-color: #2c4431; padding: 20px; border-radius: 10px; }
-.day:nth-child(5) { background-color: #44362c; padding: 20px; border-radius: 10px; }
-.day:nth-child(6) { background-color: #2c3c44; padding: 20px; border-radius: 10px; }
-.day:nth-child(7) { background-color: #44302c; padding: 20px; border-radius: 10px; }
-button:hover { transform: scale(1.1); transition: 0.3s; }
+body {
   font-family: Arial, sans-serif;
   background-color: #0d0d0d;
   color: #f2f2f2;
@@ -27,13 +20,21 @@ button:hover { transform: scale(1.1); transition: 0.3s; }
 h1, h2 {
   text-align: center;
   color: #ffcc00;
+  margin-bottom: 20px;
 }
 .day {
   display: none;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
-.active {
-  display: block;
-}
+.day:nth-child(1) { background-color: #1a1a1a; }
+.day:nth-child(2) { background-color: #2e2b44; }
+.day:nth-child(3) { background-color: #442c2c; }
+.day:nth-child(4) { background-color: #2c4431; }
+.day:nth-child(5) { background-color: #44362c; }
+.day:nth-child(6) { background-color: #2c3c44; }
+.day:nth-child(7) { background-color: #44302c; }
 button {
   background-color: #ffcc00;
   color: black;
@@ -41,6 +42,10 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 20px;
+}
+button:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 </style>
 </head>
@@ -50,65 +55,32 @@ button {
 <h1>الباب السابع</h1>
 <h2>نظام الصمت العميق</h2>
 
-<div class="day active" id="day1">
-<h2>اليوم الأول: الصمت</h2>
-<p>اجلس في مكان هادئ 15 دقيقة بدون موبايل.</p>
-<button onclick="nextDay(2)">التالي</button>
-</div>
+<div class="day">اليوم الأول: تمهيد للعبور – ركز على الصمت والتأمل.</div>
+<div class="day">اليوم الثاني: استمر في الصمت العميق – لاحظ الطاقة الداخلية.</div>
+<div class="day">اليوم الثالث: مواجهة الخوف الداخلي – سجل أي مشاعر.</div>
+<div class="day">اليوم الرابع: التحرر من القيود – استشعر الحرية.</div>
+<div class="day">اليوم الخامس: التواصل مع الذات العليا – تمارين الطاقة.</div>
+<div class="day">اليوم السادس: استحضار النور الداخلي – التركيز العميق.</div>
+<div class="day">اليوم السابع: عبور الباب السابع – الخاتمة والتكامل.</div>
 
-<div class="day" id="day2">
-<h2>اليوم الثاني: الانفصال</h2>
-<p>اكتب من أنت بدون وظيفتك أو ماضيك.</p>
-<button onclick="nextDay(3)">التالي</button>
-</div>
-
-<div class="day" id="day3">
-<h2>اليوم الثالث: الرمز</h2>
-<p>ارسم رمز يعبر عن حالتك الحالية.</p>
-<button onclick="nextDay(4)">التالي</button>
-</div>
-
-<div class="day" id="day4">
-<h2>اليوم الرابع: الشبكة</h2>
-<p>اكتب 5 أشياء تؤثر على قراراتك.</p>
-<button onclick="nextDay(5)">التالي</button>
-</div>
-
-<div class="day" id="day5">
-<h2>اليوم الخامس: الاختبار</h2>
-<p>أوقف عادة تستهلك طاقتك لمدة 24 ساعة.</p>
-<button onclick="nextDay(6)">التالي</button>
-</div>
-
-<div class="day" id="day6">
-<h2>اليوم السادس: الحقيقة</h2>
-<p>اكتب الحقيقة التي تهرب منها.</p>
-<button onclick="nextDay(7)">التالي</button>
-</div>
-
-<div class="day" id="day7">
-<h2>اليوم السابع: العبور</h2>
-<p>اتخذ قرار صغير يمثل نسختك الجديدة.</p>
-<p>🎉 مبروك! أنهيت تجربة الباب السابع.</p>
-</div>
+<button id="nextDay">اليوم التالي</button>
 
 <script>
-function nextDay(num){
-  for(let i=1;i<=7;i++){
-    document.getElementById("day"+i).classList.remove("active");
-  }
-  document.getElementById("day"+num).classList.add("active");
-}
+let currentDay = 0;
+const days = document.querySelectorAll('.day');
+const button = document.getElementById('nextDay');
+
+days.forEach(day => day.style.display = 'none');
+days[currentDay].style.display = 'block';
+
+button.addEventListener('click', () => {
+  days[currentDay].style.display = 'none';
+  currentDay++;
+  if(currentDay >= days.length) currentDay = 0;
+  days[currentDay].style.display = 'block';
+});
 </script>
 
 </div>
-</body><div class="container">
-  <div class="day">اليوم الأول: تمهيد للعبور – ركز على الصمت والتأمل.</div>
-  <div class="day">اليوم الثاني: استمر في الصمت العميق – لاحظ الطاقة الداخلية.</div>
-  <div class="day">اليوم الثالث: مواجهة الخوف الداخلي – سجل أي مشاعر.</div>
-  <div class="day">اليوم الرابع: التحرر من القيود – استشعر الحرية.</div>
-  <div class="day">اليوم الخامس: التواصل مع الذات العليا – تمارين الطاقة.</div>
-  <div class="day">اليوم السادس: استحضار النور الداخلي – التركيز العميق.</div>
-  <div class="day">اليوم السابع: عبور الباب السابع – الخاتمة والتكامل.</div>
-</div>
+</body>
 </html>
